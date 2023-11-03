@@ -2,7 +2,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 
-const PORT = 3000
+const PORT = 3006
 const app = express()
 
 const conn = require('./db/conn')
