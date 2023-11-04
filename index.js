@@ -14,6 +14,9 @@ const Tasks = require('./models/Task')
 //Importação das rotas
 const taskRoutes = require('./routes/tasksRoutes')
 
+//Importação do controller
+const TaskController = require('./controllers/TaskController')
+
 //Para dizer ao express que a template engine será a do Handlebars
 app.engine('handlebars', exphbs.engine({
     defaultLayout: "main",
@@ -39,6 +42,9 @@ app.use('/', express.static(__dirname + '/public'))
 
 //Utilização das rotas
 app.use('/tasks', taskRoutes)
+
+//Utilização da rota barra
+app.get('/', TaskController.showTasks)
 
 //Execução do servidor
 conn
