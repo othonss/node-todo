@@ -1,6 +1,7 @@
 //Importação dos módulos externos
 const express = require('express')
 const exphbs = require('express-handlebars')
+const path = require("path")
 
 const PORT = process.env.PORT
 const app = express()
@@ -14,7 +15,10 @@ const Tasks = require('./models/Task')
 const taskRoutes = require('./routes/tasksRoutes')
 
 //Para dizer ao express que a template engine será a do Handlebars
-app.engine('handlebars', exphbs.engine())
+app.engine('handlebars', exphbs.engine({
+    defaultLayout: "main",
+    layoutsDir: path.join(__dirname, "views", "layouts")
+}))
 app.set('view engine', 'handlebars')
 
 //Criação do middlewares para ler o corpo da requisição
