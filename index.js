@@ -34,7 +34,7 @@ app.use(express.json())
 
 //Definição da pasta estática
 //app.use(express.static('public'))
-app.use(express.static(__dirname + '../' + '/public'))
+//app.use(express.static(__dirname + '../' + '/public'))
 
 //Utilização das rotas
 app.use('/tasks', taskRoutes)
