@@ -44,5 +44,5 @@ conn
         }
     )
     .catch(
-        (error) => console.log(error)
+        (error) => console.log("Não foi possível achar a porta", error)
     )
