@@ -20,6 +20,7 @@ app.engine('handlebars', exphbs.engine({
     layoutsDir: path.join(__dirname, "views", "layouts")
 }))
 app.set('view engine', 'handlebars')
+app.set("views", path.join(__dirname, "views"))
 
 //Criação do middlewares para ler o corpo da requisição
 app.use(
