@@ -2,7 +2,7 @@ const {DataTypes} = require('sequelize')
 
 const db = require('../db/conn')
 
-const Tasks = db.define('Task', {
+const Tasks = db.define(process.env.DB_DBNAME, {
     title:{
        type: DataTypes.STRING,
        require: true 
