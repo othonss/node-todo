@@ -4,6 +4,7 @@ module.exports = class TaskController {
 
     static createTask(req, res){
         res.render('tasks/create')
+        res.redirect('/tasks')
     }
 
     //Função responsável por criar as tarefas (CRUD = C)
