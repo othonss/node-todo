@@ -1,4 +1,4 @@
-const Task = require('../models/Task')
+const Tasks = require('../models/Task')
 
 module.exports = class TaskController {
 
@@ -13,20 +13,20 @@ module.exports = class TaskController {
             description: req.body.description,
             done: false
         }
-        await Task.create(task)
+        await Tasks.create(task)
         res.redirect('/tasks')
     }
 
     //Função responsável por mostrar as tarefas na tela principal (CRUD = R)
     static async showTasks(req, res){
-        const tasks = await Task.findAll({raw: true})
+        const tasks = await Tasks.findAll({raw: true})
         res.render('tasks/all', {tasks})
     }
 
     //Funções responsáveis por atualizar informações e status das tarefas  (CRUD = U)
     static async updateTask(req, res){
         const id = req.params.id
-        const task = await Task.findOne({where: {id: id}, raw: true})
+        const task = await Tasks.findOne({where: {id: id}, raw: true})
         res.render('tasks/edit', {task})
     }
 
@@ -36,7 +36,7 @@ module.exports = class TaskController {
             title: req.body.title,
             description: req.body.description,
         }
-        await Task.update(task, {where: {id: id}})
+        await Tasks.update(task, {where: {id: id}})
         res.redirect('/tasks')
     }
 
@@ -46,14 +46,14 @@ module.exports = class TaskController {
             done: req.body.done === '0' ? true  : false
         }
 
-        await Task.update(task, {where: {id: id}})
+        await Tasks.update(task, {where: {id: id}})
         res.redirect('/tasks')
     }
 
     //Função responsável por deletar tarefas (CRUD = D)
     static async removeTask(req, res){
         const id = req.body.id
-        await Task.destroy({where: {id: id}})
+        await Tasks.destroy({where: {id: id}})
         res.redirect('/tasks')
     }
 }

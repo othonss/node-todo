@@ -2,13 +2,13 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 
-const PORT = 3001
+const PORT = 3000
 const app = express()
 
 const conn = require('./db/conn')
 
 //Importação dos módulos
-const Task = require('./models/Task')
+const Tasks = require('./models/Task')
 
 //Importação das rotas
 const taskRoutes = require('./routes/tasksRoutes')
