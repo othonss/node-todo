@@ -20,8 +20,7 @@ module.exports = class TaskController {
     //Função responsável por mostrar as tarefas na tela principal (CRUD = R)
     static async showTasks(req, res){
         const tasks = await Tasks.findAll({raw: true})
-        res.render('tasks/all', {tasks})
-        res.redirect('/tasks')
+        res.render('/tasks', {tasks})
     }
 
     //Funções responsáveis por atualizar informações e status das tarefas  (CRUD = U)
