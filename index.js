@@ -2,7 +2,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 
-const PORT = 3000
+const PORT = process.env.PORT
 const app = express()
 
 const conn = require('./db/conn')
@@ -40,7 +40,7 @@ conn
     )
     .then(
         () => {
-            app.listen(PORT)
+            app.listen(PORT || 5000)
         }
     )
     .catch(
