@@ -3,7 +3,7 @@ const Tasks = require('../models/Task')
 module.exports = class TaskController {
 
     static createTask(req, res){
-        res.render('Tasks/create')
+        res.render('tasks/create')
     }
 
     //Função responsável por criar as tarefas (CRUD = C)
@@ -20,7 +20,7 @@ module.exports = class TaskController {
     //Função responsável por mostrar as tarefas na tela principal (CRUD = R)
     static async showTasks(req, res){
         const tasks = await Tasks.findAll({raw: true})
-        res.render('tasks/all', {tasks})
+        res.render('task/all', {tasks})
     }
 
     //Funções responsáveis por atualizar informações e status das tarefas  (CRUD = U)
