@@ -4,7 +4,6 @@ module.exports = class TaskController {
 
     static createTask(req, res){
         res.render('tasks/create')
-        res.redirect('/tasks')
     }
 
     //Função responsável por criar as tarefas (CRUD = C)
@@ -22,6 +21,7 @@ module.exports = class TaskController {
     static async showTasks(req, res){
         const tasks = await Tasks.findAll({raw: true})
         res.render('tasks/all', {tasks})
+        res.redirect('/tasks')
     }
 
     //Funções responsáveis por atualizar informações e status das tarefas  (CRUD = U)
